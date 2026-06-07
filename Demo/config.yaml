@@ -1,0 +1,13 @@
+model_path: "weighted_model.pkl"
+data_csv: "March.csv"
+window_minutes: 30
+early_profile_minutes: 90
+lunch_start: 13
+lunch_end: 15
+top_n: 20
+state_csv: "state_store.csv"
+audit_csv: "audit_log.csv"
+web_host: "0.0.0.0"
+web_port: 5000
+web_debug: false
+refresh_interval: 60  # секунд для планировщика обновления UI (AJAX)

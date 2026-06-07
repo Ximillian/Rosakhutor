@@ -1,0 +1,9 @@
+flask
+flask-httpauth
+pandas
+numpy
+joblib
+lightgbm
+pyyaml
+apscheduler
+scikit-learn

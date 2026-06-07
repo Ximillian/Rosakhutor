@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Оператор СКД</title>
+    <script>
+        async function fetchTop() {
+            const response = await fetch('/api/top');
+            const data = await response.json();
+            const tbody = document.getElementById('top-body');
+            tbody.innerHTML = '';
+            data.forEach(item => {
+                const row = `<tr>
+                    <td>${item.ticket_number}</td>
+                    <td>${item.max_score}</td>
+                    <td>${item.last_event_time}</td>
+                    <td>${item.blocked ? 'Заблокирован' : 'Активен'}</td>
+                    <td><button onclick="blockTicket('${item.ticket_number}')">Заблокировать</button></td>
+                </tr>`;
+                tbody.insertAdjacentHTML('beforeend', row);
+            });
+        }
+        async function blockTicket(ticket) {
+            await fetch('/api/block', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ticket: ticket})
+            });
+            fetchTop();
+        }
+        setInterval(fetchTop, 30000); // обновление каждые 30 секунд
+        window.onload = fetchTop;
+    </script>
+</head>
+<body>
+    <h1>Топ подозрительных ски-пассов</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Номер пасса</th>
+                <th>Максимальный скор</th>
+                <th>Последнее событие</th>
+                <th>Статус</th>
+                <th>Действие</th>
+            </tr>
+        </thead>
+        <tbody id="top-body"></tbody>
+    </table>
+    <a href="/logout">Выйти</a>
+</body>
+</html>

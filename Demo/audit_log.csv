@@ -1,0 +1,6 @@
+timestamp,operator,action,ticket_number,details
+2026-06-07T12:24:57.982074,operator,block,883-1-95769-1,Blocked via operator action
+2026-06-07T12:24:59.383486,operator,block,883-1-95769-1,Blocked via operator action
+2026-06-07T12:25:00.078039,operator,block,883-1-95450-1,Blocked via operator action
+2026-06-07T12:25:00.755827,operator,block,883-1-96124-1,Blocked via operator action
+2026-06-07T12:25:01.395111,operator,block,883-1-96286-1,Blocked via operator action
